@@ -1,1 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PathReady — College Readiness Resource Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="logo">Path<span>Ready</span></div>
+  <div class="header-right">
+    <button class="dark-toggle" onclick="toggleDark()">
+      <span id="dk-icon">🌙</span>
+      <span id="dk-label">Dark Mode</span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════ TAB NAV ═══════════ -->
+<nav class="tab-nav">
+  <button class="tab-btn active"  onclick="showTab('home', this)">🏠 Home</button>
+  <button class="tab-btn"         onclick="showTab('timeline', this)">📅 Planning Timeline</button>
+  <button class="tab-btn"         onclick="showTab('scholarships', this)">💰 Scholarships</button>
+  <button class="tab-btn"         onclick="showTab('testing', this)">📝 Testing</button>
+  <button class="tab-btn"         onclick="showTab('applications', this)">📋 Applications & Essays</button>
+  <button class="tab-btn"         onclick="showTab('careers', this)">🎯 Career & Major Exploration</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOME
+═══════════════════════════════════════════════════════════════ -->
+<div id="tab-home" class="tab-content active">
+  <div class="page-wrap">
+
+    <div class="hero">
+      <div class="hero-badge">Free · Student-Made · No Fluff</div>
+      <h1>Your Roadmap to College Starts Here.</h1>
+      <p class="subtitle">PathReady is a practical, no-nonsense guide to the college application process — built for high school students who want clear steps, not confusion.</p>
+      <button class="cta-btn" onclick="showTab('timeline', document.querySelectorAll('.tab-btn')[1])">Start With Your Timeline →</button>
+    </div>
+
+    <div class="section-label">Our Mission</div>
+    <h2 style="margin-top:0;">What Is PathReady?</h2>
+    <p>The college process can feel overwhelming — deadlines, essays, financial aid, testing, letters of rec. PathReady cuts through the noise and gives you exactly what you need to take action, grade by grade.</p>
+    <p>This site was built by students, for students. Every section is written to be honest, direct, and actually useful.</p>
+
+    <div class="mission-strip">
+      <div class="mission-item"><span class="card-icon">📅</span><h3>Planning Timeline</h3><p>Grade-by-grade checklists from 9th to 12th.</p></div>
+      <div class="mission-item"><span class="card-icon">💰</span><h3>Scholarships</h3><p>How to find, apply, and avoid scams.</p></div>
+      <div class="mission-item"><span class="card-icon">📝</span><h3>Standardized Testing</h3><p>SAT vs ACT, free prep, and retake strategy.</p></div>
+      <div class="mission-item"><span class="card-icon">📋</span><h3>Applications & Essays</h3><p>How to write essays that stand out.</p></div>
+      <div class="mission-item"><span class="card-icon">🎯</span><h3>Career Exploration</h3><p>Find your major before it finds you.</p></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>Who Is This For?</h2>
+    <p>PathReady is designed for any high school student in grades 9–12 who wants to take the college process seriously. Whether you're just starting to think about college or you're a senior in the middle of applications, there's something here for you.</p>
+    <p>You don't need to have everything figured out. You just need to start.</p>
+
+    <div class="quick-start">
+      <h2>⚡ Quick Start: What To Do This Week</h2>
+      <p>Pick your grade below and do at least one thing on this list before the week is over.</p>
+      <ul class="checklist">
+        <li><input type="checkbox" id="qs1"><label for="qs1">Read the <strong>Planning Timeline</strong> page and find your grade's section</label></li>
+        <li><input type="checkbox" id="qs2"><label for="qs2">Write down 3 activities or interests you'd put on a college application right now</label></li>
+        <li><input type="checkbox" id="qs3"><label for="qs3">Look up your school's GPA and course requirements</label></li>
+        <li><input type="checkbox" id="qs4"><label for="qs4">Create a free account on College Board (BigFuture) or ACT.org</label></li>
+        <li><input type="checkbox" id="qs5"><label for="qs5">Talk to a teacher, counselor, or parent about your college goals</label></li>
+        <li><input type="checkbox" id="qs6"><label for="qs6">Bookmark this site and share it with a classmate</label></li>
+      </ul>
+    </div>
+
+    <div class="pro-tip">
+      <strong>💡 Pro Tip</strong>
+      The students who feel least stressed about college applications are the ones who started early. Even 30 minutes this week puts you ahead.
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TIMELINE
+═══════════════════════════════════════════════════════════════ -->
+<div id="tab-timeline" class="tab-content">
+  <div class="page-wrap">
+
+    <div class="section-label">College Planning</div>
+    <h1>Your Grade-by-Grade Timeline</h1>
+    <p>Use the filter below to jump to your grade. Each section covers academics, testing, extracurriculars, and application milestones.</p>
+
+    <div class="grade-filter">
+      <button class="grade-btn active" onclick="filterGrade('all', this)">All Grades</button>
+      <button class="grade-btn" onclick="filterGrade('g9', this)">9th Grade</button>
+      <button class="grade-btn" onclick="filterGrade('g10', this)">10th Grade</button>
+      <button class="grade-btn" onclick="filterGrade('g11', this)">11th Grade</button>
+      <button class="grade-btn" onclick="filterGrade('g12', this)">12th Grade</button>
+    </div>
+
+    <!-- 9TH GRADE -->
+    <div class="grade-section visible" data-grade="g9">
+      <div class="card">
+        <h2 style="margin-top:0; border:none;">🟢 9th Grade — Build Your Foundation</h2>
+        <p>Freshman year is about habits, not perfection. The choices you make now about courses and activities will matter more than you think.</p>
+        <h3>📚 Academics</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c1"><label for="c1">Take the most challenging courses you can realistically manage with strong grades</label></li>
+          <li><input type="checkbox" id="c2"><label for="c2">Learn how your school calculates GPA (weighted vs unweighted)</label></li>
+          <li><input type="checkbox" id="c3"><label for="c3">Build consistent study habits — college success starts with sophomore year GPA</label></li>
+          <li><input type="checkbox" id="c4"><label for="c4">Meet your school counselor and introduce yourself</label></li>
+          <li><input type="checkbox" id="c5"><label for="c5">Understand what AP, IB, or dual enrollment courses your school offers</label></li>
+        </ul>
+        <h3>🧪 Testing</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c6"><label for="c6">No major standardized testing yet — focus on your grades</label></li>
+          <li><input type="checkbox" id="c7"><label for="c7">Take the PSAT 8/9 if your school offers it (low stakes, good practice)</label></li>
+        </ul>
+        <h3>🏃 Extracurriculars</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c8"><label for="c8">Try at least 2–3 clubs, sports, or activities to find what you genuinely enjoy</label></li>
+          <li><input type="checkbox" id="c9"><label for="c9">Don't overschedule — quality matters more than quantity</label></li>
+          <li><input type="checkbox" id="c10"><label for="c10">Start thinking about leadership roles you might pursue in the future</label></li>
+        </ul>
+        <h3>🎓 College Awareness</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="c11"><label for="c11">Attend any college fairs or informational events your school holds</label></li>
+          <li><input type="checkbox" id="c12"><label for="c12">Start casually exploring college names you've heard of — no pressure</label></li>
+        </ul>
+      </div>
+      <div class="pro-tip"><strong>💡 Pro Tip — 9th Grade</strong>Your 9th grade GPA counts in your cumulative GPA that colleges see. A rough start is recoverable, but a strong start is a huge advantage.</div>
+    </div>
+
+    <!-- 10TH GRADE -->
+    <div class="grade-section visible" data-grade="g10">
+      <div class="card">
+        <h2 style="margin-top:0; border:none;">🔵 10th Grade — Explore and Build Depth</h2>
+        <p>Sophomore year is the time to deepen your involvement and start thinking strategically about junior year — the most important year for applications.</p>
+        <h3>📚 Academics</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="d1"><label for="d1">Continue to challenge yourself — add an AP or honors course if ready</label></li>
+          <li><input type="checkbox" id="d2"><label for="d2">Pay attention to your junior year course plan; take prerequisites now</label></li>
+          <li><input type="checkbox" id="d3"><label for="d3">Build relationships with 1–2 teachers who know your work (future rec writers)</label></li>
+          <li><input type="checkbox" id="d4"><label for="d4">Seek tutoring or extra help early if you're struggling in a core subject</label></li>
+        </ul>
+        <h3>🧪 Testing</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="d5"><label for="d5">Take the PSAT 10 — it's practice for the PSAT/NMSQT in 11th grade</label></li>
+          <li><input type="checkbox" id="d6"><label for="d6">Research the SAT and ACT formats — decide which you might prefer</label></li>
+          <li><input type="checkbox" id="d7"><label for="d7">Create a free Khan Academy account and explore SAT prep early</label></li>
+        </ul>
+        <h3>🏃 Extracurriculars</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="d8"><label for="d8">Start narrowing your activities to things you're truly committed to</label></li>
+          <li><input type="checkbox" id="d9"><label for="d9">Pursue leadership — run for an officer position, start a project, or lead a team</label></li>
+          <li><input type="checkbox" id="d10"><label for="d10">Begin volunteering or community service if you haven't yet</label></li>
+          <li><input type="checkbox" id="d11"><label for="d11">Consider summer programs, internships, or meaningful work experience</label></li>
+        </ul>
+        <h3>🎓 College Exploration</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="d12"><label for="d12">Make a rough list of colleges that interest you (no commitment, just curiosity)</label></li>
+          <li><input type="checkbox" id="d13"><label for="d13">If possible, visit a local college campus to get a feel for college life</label></li>
+          <li><input type="checkbox" id="d14"><label for="d14">Use BigFuture or Naviance to start a college interest list</label></li>
+        </ul>
+      </div>
+      <div class="pro-tip"><strong>💡 Pro Tip — 10th Grade</strong>Your summer before junior year is prime time. Internships, research programs, or community projects done this summer become powerful application stories.</div>
+    </div>
+
+    <!-- 11TH GRADE -->
+    <div class="grade-section visible" data-grade="g11">
+      <div class="card">
+        <h2 style="margin-top:0; border:none;">🟠 11th Grade — The Most Important Year</h2>
+        <p>Junior year is the most critical for college applications. Colleges weigh your junior GPA heavily, and you'll take your official standardized tests.</p>
+        <h3>📚 Academics</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="e1"><label for="e1">Take the most rigorous schedule you can maintain with strong grades</label></li>
+          <li><input type="checkbox" id="e2"><label for="e2">Prioritize grades in core subjects: English, Math, Science, History, Foreign Language</label></li>
+          <li><input type="checkbox" id="e3"><label for="e3">Take AP exams in May — a 4 or 5 can earn college credit</label></li>
+          <li><input type="checkbox" id="e4"><label for="e4">Ask teachers if they'd be willing to write a recommendation letter before summer</label></li>
+        </ul>
+        <h3>🧪 Testing</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="e5"><label for="e5">Take the PSAT/NMSQT in October (National Merit Scholarship qualifying test)</label></li>
+          <li><input type="checkbox" id="e6"><label for="e6">Take the SAT or ACT for the first time (spring of junior year)</label></li>
+          <li><input type="checkbox" id="e7"><label for="e7">Begin serious SAT/ACT prep at least 6–8 weeks before your test date</label></li>
+          <li><input type="checkbox" id="e8"><label for="e8">Review your scores and plan for a retake in the fall of senior year if needed</label></li>
+        </ul>
+        <h3>🏃 Extracurriculars</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="e9"><label for="e9">Deepen involvement — take on leadership, create impact, show commitment</label></li>
+          <li><input type="checkbox" id="e10"><label for="e10">Pursue meaningful summer opportunities: research, jobs, volunteering, creative projects</label></li>
+          <li><input type="checkbox" id="e11"><label for="e11">Document everything: hours, titles, accomplishments, outcomes</label></li>
+        </ul>
+        <h3>🎓 College List Building</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="e12"><label for="e12">Build a balanced college list: reach (30%), target (50%), safety (20%)</label></li>
+          <li><input type="checkbox" id="e13"><label for="e13">Research admission stats, deadlines, and financial aid policies for each school</label></li>
+          <li><input type="checkbox" id="e14"><label for="e14">Visit campuses — in-person or virtual</label></li>
+          <li><input type="checkbox" id="e15"><label for="e15">Attend college fairs and information sessions</label></li>
+          <li><input type="checkbox" id="e16"><label for="e16">Decide if you'll apply Early Decision or Early Action anywhere</label></li>
+        </ul>
+        <h3>✍️ Applications (Start Now)</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="e17"><label for="e17">Create a CommonApp account and explore the essay prompts</label></li>
+          <li><input type="checkbox" id="e18"><label for="e18">Begin brainstorming personal statement topics over the summer</label></li>
+          <li><input type="checkbox" id="e19"><label for="e19">Draft your activities list before summer ends</label></li>
+        </ul>
+      </div>
+      <div class="mistake-box"><strong>⚠️ Common Mistake — 11th Grade</strong>Waiting until senior year to start your personal statement. You'll be overwhelmed. Write your first draft this summer.</div>
+    </div>
+
+    <!-- 12TH GRADE -->
+    <div class="grade-section visible" data-grade="g12">
+      <div class="card">
+        <h2 style="margin-top:0; border:none;">🔴 12th Grade — Execute Your Plan</h2>
+        <p>Senior year is about execution. The foundation is set — now you apply, follow up, and make your final decision.</p>
+        <h3>📚 Academics</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="f1"><label for="f1">Don't let your grades slip — colleges can rescind offers for significant grade drops</label></li>
+          <li><input type="checkbox" id="f2"><label for="f2">Finish strong in AP courses and take May AP exams</label></li>
+          <li><input type="checkbox" id="f3"><label for="f3">Research dual enrollment options if available</label></li>
+        </ul>
+        <h3>🧪 Testing</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="f4"><label for="f4">Retake the SAT/ACT in fall if you want to improve your score (Sept/Oct)</label></li>
+          <li><input type="checkbox" id="f5"><label for="f5">Send official score reports to all colleges on your list</label></li>
+          <li><input type="checkbox" id="f6"><label for="f6">Check if your target schools are test-optional — don't send scores that hurt you</label></li>
+        </ul>
+        <h3>✍️ Applications</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="f7"><label for="f7">August: Finalize personal statement and have someone review it</label></li>
+          <li><input type="checkbox" id="f8"><label for="f8">September: Complete CommonApp profile, finalize college list</label></li>
+          <li><input type="checkbox" id="f9"><label for="f9">October/November: Submit Early Decision/Early Action applications</label></li>
+          <li><input type="checkbox" id="f10"><label for="f10">Confirm your teachers and counselor have submitted recommendation letters</label></li>
+          <li><input type="checkbox" id="f11"><label for="f11">December 31: Absolute latest to submit Regular Decision apps (most due Jan 1)</label></li>
+          <li><input type="checkbox" id="f12"><label for="f12">Complete FAFSA as early as October 1 — don't miss this</label></li>
+          <li><input type="checkbox" id="f13"><label for="f13">Apply for CSS Profile if required by any of your schools</label></li>
+        </ul>
+        <h3>🎉 Decision Time</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" id="f14"><label for="f14">Compare financial aid award letters carefully — don't just compare sticker prices</label></li>
+          <li><input type="checkbox" id="f15"><label for="f15">Submit your enrollment deposit by May 1 (National Decision Day)</label></li>
+          <li><input type="checkbox" id="f16"><label for="f16">Notify other schools you're not attending (frees up spots for other students)</label></li>
+          <li><input type="checkbox" id="f17"><label for="f17">Request final transcript be sent to your college</label></li>
+        </ul>
+      </div>
+      <div class="pro-tip"><strong>💡 Pro Tip — 12th Grade</strong>Apply for FAFSA on October 1 when it opens. Schools award aid on a first-come, first-served basis — earlier is better.</div>
+      <div class="mistake-box"><strong>⚠️ Common Mistake — 12th Grade</strong>Senioritis is real. Colleges routinely check your final transcript. One bad semester can get an offer rescinded.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCHOLARSHIPS
+═══════════════════════════════════════════════════════════════ -->
+<div id="tab-scholarships" class="tab-content">
+  <div class="page-wrap">
+
+    <div class="section-label">Funding Your Education</div>
+    <h1>Scholarships: Find Money, Apply Smart</h1>
+    <p>Scholarships are free money for college — you don't pay them back. Millions of dollars go unclaimed every year because students don't know where to look or don't apply.</p>
+
+    <h2>How Scholarships Work</h2>
+    <div class="card-grid">
+      <div class="card"><span class="card-icon">🏆</span><h3>Merit-Based</h3><p>Awarded based on academic achievement, talent, leadership, or community involvement. Your GPA, test scores, and essays are key factors.</p></div>
+      <div class="card"><span class="card-icon">💼</span><h3>Need-Based</h3><p>Awarded based on financial circumstances. Often requires completing the FAFSA. Determined by your Expected Family Contribution (EFC).</p></div>
+      <div class="card"><span class="card-icon">🎯</span><h3>Identity/Interest-Based</h3><p>Awarded based on background, heritage, career interest, or community. Many niche scholarships have fewer applicants — high odds.</p></div>
+      <div class="card"><span class="card-icon">🏫</span><h3>Institutional</h3><p>Directly from the college. These are often the largest amounts. Automatic at some schools; applied for at others.</p></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>How to Search Effectively</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Start with what you know about yourself</h3><p>Your major, heritage, state, hobbies, intended career, religion, first-gen status, disability status — each can unlock specific scholarships.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Use reputable search platforms</h3><p>Use free, well-known tools (listed below) to search. Create a profile and let the platform match you to opportunities.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Check locally first</h3><p>Local community foundations, employers, civic organizations, and your state government often have scholarships with fewer applicants.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Ask your school counselor</h3><p>Counselors often have a list of local and regional scholarships that never get published online.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Track everything in a spreadsheet</h3><p>Record scholarship name, deadline, amount, requirements, and status. Missing a deadline by one day means $0.</p></div></div>
+    </div>
+
+    <h2>Reputable Scholarship Search Tools</h2>
+    <ul class="tool-list">
+      <li><span class="tool-name">BigFuture (College Board)</span> — bigfuture.collegeboard.org<br><span style="color:var(--text-muted);font-size:0.87rem;">Comprehensive scholarship search, filtered by eligibility. Free. Good starting point.</span></li>
+      <li><span class="tool-name">Fastweb</span> — fastweb.com<br><span style="color:var(--text-muted);font-size:0.87rem;">One of the largest scholarship databases. Matching based on a student profile.</span></li>
+      <li><span class="tool-name">Scholarships.com</span> — scholarships.com<br><span style="color:var(--text-muted);font-size:0.87rem;">Large directory. Good for niche searches and filtering by major or state.</span></li>
+      <li><span class="tool-name">Cappex</span> — cappex.com<br><span style="color:var(--text-muted);font-size:0.87rem;">Also includes college matching alongside scholarship listings.</span></li>
+      <li><span class="tool-name">FAFSA (Federal Aid)</span> — studentaid.gov<br><span style="color:var(--text-muted);font-size:0.87rem;">Not a scholarship search tool, but required to access federal grants like the Pell Grant. File this first.</span></li>
+      <li><span class="tool-name">Your State's Higher Ed Agency</span> — Search "[your state] higher education scholarship"<br><span style="color:var(--text-muted);font-size:0.87rem;">Many states offer significant grant programs for residents. Often overlooked.</span></li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>How to Avoid Scholarship Scams</h2>
+    <div class="mistake-box"><strong>⚠️ Red Flags to Watch For</strong>If any scholarship has these warning signs, walk away.</div>
+    <ul class="checklist">
+      <li><input type="checkbox" disabled checked><label>You must pay a fee to apply or receive the scholarship</label></li>
+      <li><input type="checkbox" disabled checked><label>You "won" a scholarship you never applied for</label></li>
+      <li><input type="checkbox" disabled checked><label>They ask for your Social Security number or bank account details</label></li>
+      <li><input type="checkbox" disabled checked><label>The organization has no verifiable address or contact information</label></li>
+      <li><input type="checkbox" disabled checked><label>They guarantee you'll win before reviewing your application</label></li>
+      <li><input type="checkbox" disabled checked><label>High-pressure tactics to "act now before the deadline passes"</label></li>
+    </ul>
+    <p style="font-size:0.88rem;color:var(--text-muted)">✅ Legitimate scholarships are always free to apply for. When in doubt, search the organization name + "scholarship scam."</p>
+
+    <div class="divider"></div>
+
+    <h2>Step-by-Step: How to Apply for Scholarships</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Build your core materials</h3><p>Prepare a resume, a general personal statement, your GPA and test scores, and 1–2 recommendation letter contacts before applying anywhere.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Read each scholarship's requirements carefully</h3><p>Eligibility varies by GPA cutoff, major, residency, income, or identity. Don't waste time applying to ones you don't qualify for.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Tailor your essays for each application</h3><p>A generic essay rarely wins. Show you understand what the scholarship values. Connect your story to their mission.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Apply to many — especially local and niche</h3><p>Apply for smaller, less-known scholarships. A $500 scholarship with 20 applicants beats a $5,000 scholarship with 50,000 applicants in terms of odds.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Submit before the deadline and follow up</h3><p>Never submit the night before. Confirm receipt when possible. Save all confirmation emails.</p></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-body"><h3>Keep applying in college</h3><p>Many scholarships are renewable each year if you maintain a GPA. New scholarships also open up for current college students.</p></div></div>
+    </div>
+
+    <div class="pro-tip"><strong>💡 Pro Tip</strong>Treat scholarship applications like a part-time job. Set aside a few hours each week. Students who apply to 20+ scholarships statistically receive more funding than those who apply to 2–3.</div>
+    <div class="mistake-box"><strong>⚠️ Common Mistakes</strong>Missing deadlines. Writing one generic essay for every application. Not applying to local scholarships. Forgetting to complete FAFSA before school-based aid is distributed.</div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TESTING
+═══════════════════════════════════════════════════════════════ -->
+<div id="tab-testing" class="tab-content">
+  <div class="page-wrap">
+
+    <div class="section-label">Standardized Testing</div>
+    <h1>SAT, ACT & How to Prepare</h1>
+    <p>Standardized tests are one piece of the college application puzzle. Many schools are now test-optional, but a strong score can still open doors and earn merit scholarships.</p>
+
+    <h2>SAT vs. ACT: Which Should You Take?</h2>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Category</th><th>SAT</th><th>ACT</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Format</strong></td><td>Reading/Writing + Math. Digital only (as of 2024).</td><td>English, Math, Reading, Science. Paper or digital.</td></tr>
+        <tr><td><strong>Score Range</strong></td><td>400–1600</td><td>1–36 (composite)</td></tr>
+        <tr><td><strong>Math Focus</strong></td><td>Stronger math emphasis</td><td>Science reasoning section included</td></tr>
+        <tr><td><strong>Time</strong></td><td>~2 hrs 14 min (digital)</td><td>~2 hrs 55 min (with essay: longer)</td></tr>
+        <tr><td><strong>Calculator</strong></td><td>Allowed throughout on digital</td><td>Allowed on half the math section</td></tr>
+        <tr><td><strong>Best For</strong></td><td>Strong readers, math-focused students</td><td>Science-oriented students, faster readers</td></tr>
+        <tr><td><strong>Accepted By</strong></td><td>All U.S. colleges</td><td>All U.S. colleges</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pro-tip"><strong>💡 Pro Tip</strong>Take a free practice test for both the SAT and ACT before deciding which to focus on. Most students have a natural preference. Go with the one where your practice scores are higher.</div>
+
+    <h2>When to Take Your Tests</h2>
+    <div class="card">
+      <h3>Recommended Timeline</h3>
+      <div class="steps" style="margin:0;">
+        <div class="step"><div class="step-num">10</div><div class="step-body"><h3>10th Grade (Spring)</h3><p>Take the PSAT 10 for practice. Begin researching which test you prefer.</p></div></div>
+        <div class="step"><div class="step-num">11</div><div class="step-body"><h3>11th Grade (Oct)</h3><p>Take the PSAT/NMSQT — counts for National Merit Scholarship consideration.</p></div></div>
+        <div class="step"><div class="step-num">11</div><div class="step-body"><h3>11th Grade (Mar–Jun)</h3><p>Take the SAT or ACT for the first time. Begin prep at least 6–8 weeks before.</p></div></div>
+        <div class="step"><div class="step-num">12</div><div class="step-body"><h3>12th Grade (Aug–Oct)</h3><p>Retake if needed. This is your last realistic opportunity for scores to reach colleges on time.</p></div></div>
+      </div>
+    </div>
+
+    <h2>How to Study Effectively</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Diagnose your weak areas first</h3><p>Take a full practice test, score it, and identify where you lose the most points. Study those areas — don't review things you already know.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Practice consistently — not just the week before</h3><p>30–45 minutes per day over 6–8 weeks beats a weekend cram. Use official practice tests.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Review wrong answers carefully</h3><p>Don't just note that you got something wrong. Understand exactly why, and what the correct reasoning is.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Simulate real test conditions</h3><p>Timed, no distractions, no phone. The more realistic your practice, the calmer you'll be on test day.</p></div></div>
+    </div>
+
+    <h2>Free Prep Resources</h2>
+    <ul class="tool-list">
+      <li><span class="tool-name">Khan Academy + College Board (SAT)</span> — khanacademy.org/sat<br><span style="color:var(--text-muted);font-size:0.87rem;">Personalized SAT prep linked to your PSAT scores. Free and highly effective. Official partnership with College Board.</span></li>
+      <li><span class="tool-name">ACT Academy</span> — academy.act.org<br><span style="color:var(--text-muted);font-size:0.87rem;">Official free practice platform from ACT, Inc. Includes full-length practice tests and targeted lessons.</span></li>
+      <li><span class="tool-name">Official SAT Practice Tests</span> — collegeboard.org<br><span style="color:var(--text-muted);font-size:0.87rem;">8 full-length, official, free practice tests available for download. Use these over third-party tests.</span></li>
+      <li><span class="tool-name">Official ACT Practice Tests</span> — act.org/practice<br><span style="color:var(--text-muted);font-size:0.87rem;">Free full-length tests directly from ACT. Most realistic preparation material available.</span></li>
+      <li><span class="tool-name">PrepScholar Blog</span> — blog.prepscholar.com<br><span style="color:var(--text-muted);font-size:0.87rem;">Free articles on strategy, score analysis, and section-by-section tips. No purchase required to access core content.</span></li>
+    </ul>
+
+    <h2>Retake Strategy</h2>
+    <div class="card">
+      <p>Most students improve on a retake — but only if they actually prepare differently. Here's how to think about retaking:</p>
+      <ul class="checklist">
+        <li><input type="checkbox" id="t1"><label for="t1">Retake if your score is significantly below the median for your target schools</label></li>
+        <li><input type="checkbox" id="t2"><label for="t2">Retake if you know you underperformed due to nerves, illness, or poor prep</label></li>
+        <li><input type="checkbox" id="t3"><label for="t3">Most colleges superscore (use your best section scores across sittings) — confirm with each school</label></li>
+        <li><input type="checkbox" id="t4"><label for="t4">Don't retake if you already score at or above the 75th percentile for your target schools</label></li>
+        <li><input type="checkbox" id="t5"><label for="t5">Most students take the SAT or ACT 2–3 times maximum. More than that offers diminishing returns.</label></li>
+        <li><input type="checkbox" id="t6"><label for="t6">Check if schools are test-optional — if so, only submit scores that help you</label></li>
+      </ul>
+    </div>
+
+    <div class="mistake-box"><strong>⚠️ Common Mistakes</strong>Waiting until senior fall to take the test for the first time. Using unofficial prep books instead of official tests. Not reviewing wrong answers. Sending low scores to schools where they'd hurt you.</div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     APPLICATIONS & ESSAYS
+═══════════════════════════════════════════════════════════════ -->
+<div id="tab-applications" class="tab-content">
+  <div class="page-wrap">
+
+    <div class="section-label">Applications & Essays</div>
+    <h1>How to Put Together a Strong Application</h1>
+    <p>Your application is more than grades and test scores. It's the sum of your activities, your recommendations, and most importantly — your writing.</p>
+
+    <h2>Building Your Activities List</h2>
+    <p>The CommonApp gives you 10 activity slots. Use them strategically.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h3>List everything first</h3><p>Brainstorm every activity, job, sport, hobby, club, or responsibility you've had — even informal ones like caring for a sibling or managing a social media account.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Prioritize by impact and time commitment</h3><p>Put your most significant, time-intensive, or leadership-heavy activities first. Admissions officers read top-to-bottom.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Use the description space wisely</h3><p>150 characters per description. Be specific and quantify your impact: "Led team of 12 students" beats "Club leader."</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Show depth, not just breadth</h3><p>A few activities done for multiple years with increasing responsibility look better than 10 things done once.</p></div></div>
+    </div>
+
+    <div class="pro-tip"><strong>💡 Pro Tip</strong>Don't feel bad if you have fewer than 10 activities. Quality signals commitment. 6 strong entries are better than 10 weak ones.</div>
+
+    <h2>Asking for Recommendation Letters</h2>
+    <ul class="checklist">
+      <li><input type="checkbox" id="a1"><label for="a1">Ask at least 2 months before application deadlines — never last minute</label></li>
+      <li><input type="checkbox" id="a2"><label for="a2">Choose teachers who know your work and can speak specifically about you</label></li>
+      <li><input type="checkbox" id="a3"><label for="a3">Ask teachers from your core academic subjects (English, Math, Science, History)</label></li>
+      <li><input type="checkbox" id="a4"><label for="a4">Provide a "brag sheet" with your activities, achievements, and goals to make their job easier</label></li>
+      <li><input type="checkbox" id="a5"><label for="a5">Follow up politely one week before the deadline to confirm submission</label></li>
+      <li><input type="checkbox" id="a6"><label for="a6">Send a thank-you note (handwritten or email) after letters are submitted</label></li>
+      <li><input type="checkbox" id="a7"><label for="a7">Choose a counselor who can speak to your character and growth — give them context too</label></li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>Writing Your Personal Statement</h2>
+    <p>The personal statement (650 words, CommonApp) is your chance to speak directly to an admissions officer. It should sound like you — not a brochure.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Choose a topic that reveals something meaningful</h3><p>Not necessarily the most impressive event in your life — the most revealing. A small story told with depth beats a grand accomplishment described vaguely.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Start with a scene, not a thesis</h3><p>Drop readers into a specific moment. "It was 2 AM when the server crashed" is more compelling than "I have always loved technology."</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Show, don't tell</h3><p>"I am curious" tells. "I spent three weekends rebuilding a broken radio just to understand how frequency works" shows.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Connect the story to who you are now</h3><p>How did this experience shape you? What did you learn? How does it connect to what you want to study or do in college?</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Edit ruthlessly — every word earns its place</h3><p>At 650 words, there's no room for filler. Cut adverbs, passive voice, and clichés. Read it out loud to catch awkward phrasing.</p></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-body"><h3>Get feedback from multiple readers</h3><p>A teacher, parent, peer, and school counselor each catch different things. Don't just fix grammar — get input on whether the essay "sounds like you."</p></div></div>
+    </div>
+
+    <div class="mistake-box"><strong>⚠️ Common Essay Mistakes</strong>Writing about a sports injury or mission trip without a deeper insight. Using overly formal language that doesn't sound like you. Summarizing your resume instead of telling a story. Waiting until November to start. Using AI to write your essay — admissions officers can tell, and many schools will reject for this.</div>
+
+    <h2>Application Timeline Reminders</h2>
+    <div class="card">
+      <table class="compare-table" style="box-shadow:none;margin:0;">
+        <thead><tr><th>Date</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>Summer before 12th</td><td>Draft personal statement. Finalize activities list. Build final college list.</td></tr>
+          <tr><td>August</td><td>Revise essay. Request recommendation letters. Open CommonApp.</td></tr>
+          <tr><td>September–October</td><td>Complete supplemental essays. Submit ED/EA applications.</td></tr>
+          <tr><td>October 1</td><td>FAFSA opens — file as early as possible.</td></tr>
+          <tr><td>November 1 / 15</td><td>Common ED/EA deadlines.</td></tr>
+          <tr><td>December–January</td><td>Regular Decision applications due (most Jan 1).</td></tr>
+          <tr><td>March–April</td><td>Decisions arrive. Compare aid packages.</td></tr>
+          <tr><td>May 1</td><td>National Decision Day — submit enrollment deposit.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pro-tip"><strong>💡 Pro Tip</strong>Supplemental essays ("Why us?" questions) require real research. Name specific programs, professors, clubs, or opportunities at that school. Admissions offices can spot a recycled essay immediately.</div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CAREER & MAJOR EXPLORATION
+═══════════════════════════════════════════════════════════════ -->
+<div id="tab-careers" class="tab-content">
+  <div class="page-wrap">
+
+    <div class="section-label">Career & Major Exploration</div>
+    <h1>Finding Your Direction</h1>
+    <p>You don't need to know exactly what you want to do at 17. But taking time to explore interests thoughtfully now will save you time, money, and stress in college.</p>
+
+    <h2>How to Explore Your Interests</h2>
+    <ul class="checklist">
+      <li><input type="checkbox" id="cr1"><label for="cr1">Write down subjects that make you lose track of time when you study or practice them</label></li>
+      <li><input type="checkbox" id="cr2"><label for="cr2">Note the types of problems you enjoy solving (people problems, technical problems, creative problems)</label></li>
+      <li><input type="checkbox" id="cr3"><label for="cr3">Shadow a professional in a field that interests you — even one day gives you real insight</label></li>
+      <li><input type="checkbox" id="cr4"><label for="cr4">Take a free interest inventory or personality assessment (Holland Codes, Myers-Briggs, StrengthsFinder)</label></li>
+      <li><input type="checkbox" id="cr5"><label for="cr5">Talk to adults you respect about how they ended up in their careers</label></li>
+      <li><input type="checkbox" id="cr6"><label for="cr6">Take elective courses in areas you've never explored — high school is the right time to experiment</label></li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>How Majors Connect to Careers</h2>
+    <div class="card">
+      <p>A major is a structured area of study. A career is what you do with your knowledge and skills. These don't always match up one-to-one, and that's okay.</p>
+      <table class="compare-table" style="box-shadow:none;margin:1rem 0 0;">
+        <thead><tr><th>Common Misconception</th><th>Reality</th></tr></thead>
+        <tbody>
+          <tr><td>"I need to know my career before picking a major"</td><td>Many careers are open to multiple majors. Skills matter as much as subject area.</td></tr>
+          <tr><td>"My major determines my income"</td><td>Job performance, networking, and field growth also drive earnings.</td></tr>
+          <tr><td>"If I change my major, I wasted time"</td><td>Most students change majors at least once. Core requirements often transfer.</td></tr>
+          <tr><td>"I need a STEM degree to be successful"</td><td>Liberal arts, business, and social science majors have strong outcomes in many fields.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pro-tip"><strong>💡 Pro Tip</strong>Research the career outcomes, median salary, and job growth for any field that interests you before committing to a major. The Bureau of Labor Statistics (bls.gov) has free, reliable data on hundreds of careers.</div>
+
+    <h2>Questions to Ask Before Choosing a Major</h2>
+    <div class="card-grid">
+      <div class="card"><h3>About Yourself</h3><p>What do I enjoy learning about? What would I study even if I weren't graded? What skills do I want to develop?</p></div>
+      <div class="card"><h3>About the Field</h3><p>What does someone with this degree actually do day-to-day? What's the job market like? What do entry-level roles look like?</p></div>
+      <div class="card"><h3>About the Major</h3><p>What courses does this require? What will I be doing in class — research, design, analysis, writing? Do those things excite me?</p></div>
+      <div class="card"><h3>About Money</h3><p>What's the average starting salary? What's the growth trajectory? Can I afford the degree I need to enter this field?</p></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>Tools to Help You Explore</h2>
+    <ul class="tool-list">
+      <li><span class="tool-name">BigFuture (College Board)</span> — bigfuture.collegeboard.org<br><span style="color:var(--text-muted);font-size:0.87rem;">Major Explorer tool maps majors to career fields, course requirements, and typical outcomes. Helpful for narrowing options.</span></li>
+      <li><span class="tool-name">Bureau of Labor Statistics — Occupational Outlook Handbook</span> — bls.gov/ooh<br><span style="color:var(--text-muted);font-size:0.87rem;">Government data on hundreds of careers: salary ranges, education requirements, job outlook, and daily tasks. Highly reliable.</span></li>
+      <li><span class="tool-name">O*NET Online</span> — onetonline.org<br><span style="color:var(--text-muted);font-size:0.87rem;">Career exploration database with interest matching, skill profiles, and detailed job descriptions.</span></li>
+      <li><span class="tool-name">My Next Move (O*NET)</span> — mynextmove.org<br><span style="color:var(--text-muted);font-size:0.87rem;">Simplified version of O*NET designed for students. Includes interest-based career matching.</span></li>
+      <li><span class="tool-name">LinkedIn Career Explorer</span> — linkedin.com/career-explorer<br><span style="color:var(--text-muted);font-size:0.87rem;">Shows career paths based on skills, and what majors lead to which roles based on real outcomes.</span></li>
+      <li><span class="tool-name">Forage</span> — theforage.com<br><span style="color:var(--text-muted);font-size:0.87rem;">Free virtual internship programs from real companies. Gives you a preview of what working in a field actually feels like.</span></li>
+    </ul>
+
+    <h2>Common Mistakes</h2>
+    <div class="mistake-box"><strong>⚠️ Common Mistakes in Major/Career Exploration</strong>Choosing a major solely based on prestige or parental pressure. Ignoring your actual interests and strengths. Not researching what the career actually looks like day-to-day. Assuming you have to decide everything before starting college. Picking a "safe" major you have no interest in, then burning out.</div>
+
+    <div class="card" style="margin-top:2rem;">
+      <h3>✅ What Strong Exploration Looks Like</h3>
+      <ul class="checklist">
+        <li><input type="checkbox" id="cr7"><label for="cr7">You've looked at actual job postings in fields you're considering</label></li>
+        <li><input type="checkbox" id="cr8"><label for="cr8">You've talked to at least one person who works in that field</label></li>
+        <li><input type="checkbox" id="cr9"><label for="cr9">You've reviewed the course requirements for that major at 2–3 colleges</label></li>
+        <li><input type="checkbox" id="cr10"><label for="cr10">You've researched salary ranges and job growth in that field</label></li>
+        <li><input type="checkbox" id="cr11"><label for="cr11">You've tried something hands-on — a class, project, or internship related to that field</label></li>
+        <li><input type="checkbox" id="cr12"><label for="cr12">Your interest survives the boring parts (paperwork, grunt work, required prerequisites)</label></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <strong>PathReady</strong> — A Student-Created College Readiness Resource<br>
+  This website is an independent, student-made educational resource. It is not officially affiliated with, endorsed by, or connected to any college, university, school district, government agency, or private organization. All tools and platforms referenced are mentioned for informational purposes only — no paid promotion or sponsorship is implied. Information is provided in good faith but may change; always verify details directly with official sources.
+  <br><br>
+  © 2025 PathReady · Built to help students, not to replace professional guidance. For personalized advice, consult your school counselor or a certified college advisor.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
